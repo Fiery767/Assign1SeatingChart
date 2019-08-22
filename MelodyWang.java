@@ -96,6 +96,8 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
      * classes, make sure to fully document so other students can use the same interface.
      */
     public void answerQuestion(){
+        String [][] questionBoard;
+        questionBoard = new String[2][2];
         String q=Greenfoot.ask("What would you like to know");
         if (q.contains("hard")){
             q=Greenfoot.ask("2D arrays, recursion, and merge sort... May I sit down?");
