@@ -29,7 +29,7 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
         mySeat=s;
         portraitFile=f.toLowerCase()+l.toLowerCase()+".jpg";    // Make sure to name your image files firstlast.jpg, all lowercase!!!
         standingFile=f.toLowerCase()+ l.toLowerCase()+"-standing.jpg";
-        bandFile=f.toLowerCase()+l.toLowerCase()+"-dance.jpg";
+        bandFile=f.toLowerCase()+l.toLowerCase()+"-band.jpg";
         soundFile=f.toLowerCase()+l.toLowerCase()+".wav";  // Make sure to name your sound files firstlast.wav, all lowercase!!!
         setImage(portraitFile);
         sitting=true;
@@ -45,12 +45,12 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
         myRow=4;
         mySeat=4;
        // imgFile=firstName.toLowerCase()+ lastName.toLowerCase()+".jpg";
-       portraitFile=firstName.toLowerCase()+ lastName.toLowerCase()+".jpg";
-       standingFile=firstName.toLowerCase()+ lastName.toLowerCase()+"-standing.jpg";
-       bandFile=firstName.toLowerCase()+ lastName.toLowerCase()+"-dancing.jpg";
-        soundFile=firstName.toLowerCase()+ lastName.toLowerCase()+".wav";
-        setImage(portraitFile);
-        sitting=true;
+       portraitFile=firstName.toLowerCase()+ lastName.toLowerCase()+".JPG";
+       standingFile=firstName.toLowerCase()+ lastName.toLowerCase()+"-standing.JPG";
+       bandFile=firstName.toLowerCase()+ lastName.toLowerCase()+"-band.JPG";
+       soundFile=firstName.toLowerCase()+ lastName.toLowerCase()+".wav";
+       setImage(portraitFile);
+       sitting=true;
     }
     
      /**
@@ -60,13 +60,14 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
     public void act() 
     {
         // Add your action code here.
+        returnToSeat();
         if(Greenfoot.mouseClicked(this)){
             if (sitting){
                 sitting=false;
                 setImage(standingFile);
                 System.out.println(""); // Print a blank line to create space between any student output.
                 getName();
-                sayName(soundFile);
+                //sayName(soundFile);
             
                 myHobby("I'm a part of the marching band.");
             // Create a "special method for your class and put the call here.  You can twirl your image, resize it, move it around, change transparancy, or a 
@@ -118,28 +119,30 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
      */
     public void bandClass(){
         setLocation(0,0);
+        setImage(bandFile);
          Greenfoot.delay(10);
         // move right
         for (int i=1;i<=9;i++){
             setLocation(i,0);
             Greenfoot.delay(10);
         }
-        // move back
+        /* move back
         for (int i=1;i<=5;i++){
             setLocation(9,i);
             Greenfoot.delay(10);
-        }      
+        } */     
          // move left
         for (int i=9;i>=0;i--){
-            setLocation(i,5);
+            setLocation(i,0);
             Greenfoot.delay(10);
         }      
-              // move Forward
+              /* move Forward
         for (int i=5;i>=0;i--){
             setLocation(0,i);
             Greenfoot.delay(10);
-        }   
+        }   */
            Greenfoot.delay(20);
+           setImage(standingFile);
            returnToSeat();
     }
      public void myHobby(String s) {
