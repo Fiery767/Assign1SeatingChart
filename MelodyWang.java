@@ -97,8 +97,6 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
      * classes, make sure to fully document so other students can use the same interface.
      */
     public void answerQuestion(){
-        String [][] questionBoard;
-        questionBoard = new String[2][2];
         String q=Greenfoot.ask("What would you like to know");
         if (q.contains("hard")){
             q=Greenfoot.ask("2D arrays, recursion, and merge sort... May I sit down?");
@@ -118,34 +116,49 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
      * You can write your own methods to perform your own animation for your character/avatar.
      */
     public void bandClass(){
+        String [][] formation = new String [2][2];
+        formation[0][0] = "Box";
+        formation[0][1] = "Lines";
+        formation[1][0] = "Diagonals";
+        formation[1][1] = "Plus";
+        int formationNumber;
+        String q=Greenfoot.ask("What formation would you like to see? (Enter a number between 1-4)");
+        if (q == 1) {
+        System.out.println("Now showing: " + formation[0][0] + "formation");
         setLocation(0,0);
         setImage(bandFile);
-         Greenfoot.delay(10);
-        // move right
+        Greenfoot.delay(10);
+        //move right
         for (int i=1;i<=9;i++){
             setLocation(i,0);
             Greenfoot.delay(10);
-        }
-        /* move back
-        for (int i=1;i<=5;i++){
-            setLocation(9,i);
-            Greenfoot.delay(10);
-        } */     
-         // move left
+        }    
+        //move left
         for (int i=9;i>=0;i--){
             setLocation(i,0);
             Greenfoot.delay(10);
-        }      
-              /* move Forward
+        }
+        //move back
+        for (int i=1;i<=5;i++){
+            setLocation(0,i);
+            Greenfoot.delay(10);
+        } 
+        //move forward
         for (int i=5;i>=0;i--){
             setLocation(0,i);
             Greenfoot.delay(10);
-        }   */
+        }
+        //move diagonal
+        for (int i=1; i<=5; i++) {
+            setLocation(i, i);
+            Greenfoot.delay(10);
+        }
            Greenfoot.delay(20);
            setImage(standingFile);
            returnToSeat();
     }
-     public void myHobby(String s) {
+}
+    public void myHobby(String s) {
          System.out.println(s);
 }
 
