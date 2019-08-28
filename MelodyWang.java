@@ -27,9 +27,9 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
         lastName=l;
         myRow=r;
         mySeat=s;
-        portraitFile=f.toLowerCase()+l.toLowerCase()+".jpg";    // Make sure to name your image files firstlast.jpg, all lowercase!!!
-        standingFile=f.toLowerCase()+ l.toLowerCase()+"-standing.jpg";
-        bandFile=f.toLowerCase()+l.toLowerCase()+"-band.jpg";
+        portraitFile=f.toLowerCase()+l.toLowerCase()+".JPG";    // Make sure to name your image files firstlast.jpg, all lowercase!!!
+        standingFile=f.toLowerCase()+ l.toLowerCase()+"-standing.JPG";
+        bandFile=f.toLowerCase()+l.toLowerCase()+"-band.JPG";
         soundFile=f.toLowerCase()+l.toLowerCase()+".wav";  // Make sure to name your sound files firstlast.wav, all lowercase!!!
         setImage(portraitFile);
         sitting=true;
@@ -60,7 +60,6 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
     public void act() 
     {
         // Add your action code here.
-        returnToSeat();
         if(Greenfoot.mouseClicked(this)){
             if (sitting){
                 sitting=false;
@@ -121,45 +120,67 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
         formation[0][1] = "Lines";
         formation[1][0] = "Diagonals";
         formation[1][1] = "Plus";
-        int formationNumber;
-        String q=Greenfoot.ask("What formation would you like to see? (Enter a number between 1-4)");
-        if (q == 1) {
-        System.out.println("Now showing: " + formation[0][0] + "formation");
-        setLocation(0,0);
         setImage(bandFile);
+        String q=Greenfoot.ask("What formation would you like to see? (Enter a number between 1-4)");
+        if (q.equals("1")) {
+            setLocation(0, 0);
+            System.out.println("Now showing: " + formation[0][0] + " formation");
+            for (int i=1; i<=9; i++) {
+                setLocation(i, 0);
+                Greenfoot.delay(5);
+            }
+            for (int i=1; i<=5; i++) {
+                setLocation(9, i);
+                Greenfoot.delay(5);
+            }
+            for (int i=9; i>=0; i--) {
+                setLocation(i, 5);
+                Greenfoot.delay(5);
+            }
+            for (int i=5; i>=0; i--) {
+                setLocation(0, i);
+                Greenfoot.delay(5);
+            }
+        }
+        
+        if (q.equals("2")) {
+            setLocation(0, 0);
+            System.out.println("Now showing: " + formation[0][0] + " formation");
+            //move right
+            for (int i=1;i<=9;i++){
+                setLocation(i,0);
+                Greenfoot.delay(10);
+            }    
+            //move left
+            for (int i=9;i>=0;i--){
+                setLocation(i,0);
+                Greenfoot.delay(10);
+            }
+            //move back
+            for (int i=1;i<=5;i++){
+                setLocation(0,i);
+                Greenfoot.delay(10);
+            } 
+            //move forward
+            for (int i=5;i>=0;i--){
+                setLocation(0,i);
+                Greenfoot.delay(10);
+            }
+        }
+        
+        setLocation(0,0);
         Greenfoot.delay(10);
-        //move right
-        for (int i=1;i<=9;i++){
-            setLocation(i,0);
-            Greenfoot.delay(10);
-        }    
-        //move left
-        for (int i=9;i>=0;i--){
-            setLocation(i,0);
-            Greenfoot.delay(10);
-        }
-        //move back
-        for (int i=1;i<=5;i++){
-            setLocation(0,i);
-            Greenfoot.delay(10);
-        } 
-        //move forward
-        for (int i=5;i>=0;i--){
-            setLocation(0,i);
-            Greenfoot.delay(10);
-        }
-        //move diagonal
+        /*move diagonal
         for (int i=1; i<=5; i++) {
             setLocation(i, i);
             Greenfoot.delay(10);
-        }
+        }*/
            Greenfoot.delay(20);
            setImage(standingFile);
            returnToSeat();
     }
-}
     public void myHobby(String s) {
          System.out.println(s);
-}
 
+    }
 }
