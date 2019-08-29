@@ -125,27 +125,30 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
         if (q.equals("1")) {
             setLocation(0, 0);
             System.out.println("Now showing: " + formation[0][0] + " formation");
+            //move right
             for (int i=1; i<=9; i++) {
                 setLocation(i, 0);
-                Greenfoot.delay(5);
+                Greenfoot.delay(10);
             }
+            //move down
             for (int i=1; i<=5; i++) {
                 setLocation(9, i);
-                Greenfoot.delay(5);
+                Greenfoot.delay(10);
             }
+            //move left
             for (int i=9; i>=0; i--) {
                 setLocation(i, 5);
-                Greenfoot.delay(5);
+                Greenfoot.delay(10);
             }
+            //move up
             for (int i=5; i>=0; i--) {
                 setLocation(0, i);
-                Greenfoot.delay(5);
+                Greenfoot.delay(10);
             }
-        }
-        
-        if (q.equals("2")) {
+        } 
+        else if (q.equals("2")) {
             setLocation(0, 0);
-            System.out.println("Now showing: " + formation[0][0] + " formation");
+            System.out.println("Now showing: " + formation[0][1] + " formation");
             //move right
             for (int i=1;i<=9;i++){
                 setLocation(i,0);
@@ -156,29 +159,96 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
                 setLocation(i,0);
                 Greenfoot.delay(10);
             }
-            //move back
+            //move down
             for (int i=1;i<=5;i++){
                 setLocation(0,i);
                 Greenfoot.delay(10);
             } 
-            //move forward
+            //move up
             for (int i=5;i>=0;i--){
                 setLocation(0,i);
                 Greenfoot.delay(10);
             }
         }
-        
-        setLocation(0,0);
+        else if (q.equals("3")) {
+            setLocation(0, 0);
+            System.out.println("Now showing: " + formation[1][0] + " formation");
+            //move diagonal (right and down)
+            for (int i=1; i<=5; i++) {
+                setLocation(i, i);
+                Greenfoot.delay(10);
+            }
+            //move back to (0,0)
+            for (int i=5; i>=0; i--) {
+                setLocation(i, i);
+                Greenfoot.delay(10);
+            }
+            //move to the right
+            for (int i=1; i<=9; i++) {
+                setLocation(i, 0);
+                Greenfoot.delay(10);
+            }
+            //move down
+            for (int i=1; i<=5; i++) {
+                setLocation(9, i);
+                Greenfoot.delay(10);
+            }
+            //move diagonal (up and left)
+            for (int i=9; i>=5; i--) {
+                setLocation(i, i-4);
+                Greenfoot.delay(10);
+            }
+            //move back to the corner
+            for (int i=5; i<=9; i++) {
+                setLocation(i, i-4);
+                Greenfoot.delay(10);
+            }
+        }
+        else if (q.equals("4")) {
+            System.out.println("Now showing: " + formation[1][1] + " formation");
+            setLocation(4, 3);
+            //move up, then back down
+            for (int i=3; i>=0; i--) {
+                setLocation(4, i);
+                Greenfoot.delay(10);
+            }
+            for (int i=0; i<=3; i++) {
+                setLocation(4, i);
+                Greenfoot.delay(10);
+            }
+            //move left, then back right
+            for (int i=4; i>=0; i--) {
+                setLocation(i, 3);
+                Greenfoot.delay(10);
+            }
+            for (int i=0; i<=4; i++) {
+                setLocation(i, 3);
+                Greenfoot.delay(10);
+            }
+            //move down, then back up
+            for (int i=3; i<=5; i++) {
+                setLocation(4, i);
+                Greenfoot.delay(10);
+            }
+            for (int i=5; i>=3; i--) {
+                setLocation(4, i);
+                Greenfoot.delay(10);
+            }
+            //move right, then back left
+            for (int i=4; i<=9; i++) {
+                setLocation(i, 3);
+                Greenfoot.delay(10);
+            }
+            for (int i=9; i>=4; i--) {
+                setLocation(i, 3);
+                Greenfoot.delay(10);
+            }
+        }
         Greenfoot.delay(10);
-        /*move diagonal
-        for (int i=1; i<=5; i++) {
-            setLocation(i, i);
-            Greenfoot.delay(10);
-        }*/
-           Greenfoot.delay(20);
-           setImage(standingFile);
-           returnToSeat();
-    }
+        setImage(standingFile);
+        returnToSeat();
+        }
+    
     public void myHobby(String s) {
          System.out.println(s);
 
