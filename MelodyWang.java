@@ -98,7 +98,7 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
     public void answerQuestion(){
         String q=Greenfoot.ask("What would you like to know");
         if (q.contains("hard")){
-            q=Greenfoot.ask("2D arrays, recursion, and merge sort... May I sit down?");
+            q=Greenfoot.ask("The different types of sorts, ");
         
         }
         else {
@@ -120,6 +120,12 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
         formation[0][1] = "Lines";
         formation[1][0] = "Diagonals";
         formation[1][1] = "Plus";
+        int [][] randomMovement = new int [5][5];
+        for (int a=0; a<5; a++) {
+            for (int b=0; b<5; b++) {
+                randomMovement[a][b] = (int)(Math.random()*10);
+            }
+        }
         setImage(bandFile);
         String q=Greenfoot.ask("What formation would you like to see? (Enter a number between 1-4)");
         if (q.equals("1")) {
@@ -241,6 +247,13 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
             }
             for (int i=9; i>=4; i--) {
                 setLocation(i, 3);
+                Greenfoot.delay(10);
+            }
+        }
+        else {
+            System.out.println("That's not a valid formation! I don't know where I'm going.");
+            for (int i=1; i<=10; i++) {
+                setLocation(randomMovement[(int)(Math.random()*4)][(int)(Math.random()*4)], randomMovement[(int)(Math.random()*4)][(int)(Math.random()*4)]);
                 Greenfoot.delay(10);
             }
         }
