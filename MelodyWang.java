@@ -96,15 +96,24 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
      * classes, make sure to fully document so other students can use the same interface.
      */
     public void answerQuestion(){
-        String q=Greenfoot.ask("What would you like to know");
+        String q=Greenfoot.ask("What would you like to know?");
         if (q.contains("hard")){
-            q=Greenfoot.ask("The different types of sorts, ");
-        
+            q=Greenfoot.ask
+            ("Sorts, searches, tracing iterations of loops, syntax for declaring variables (arrays, 2D arrays, lists, etc.), and deciding scope for methods. " +
+            "May I sit down?");
+            if (q.contains("sorts")) {
+                q=Greenfoot.ask("I was confused about the differences between merge, selection, and insertion sort, and how to implement each of them. " +
+                "May I sit down?");
+            }
+            if (q.contains("iterations") || q.contains("loops")) {
+                q=Greenfoot.ask("Counting iterations and tracing what would be printed or stored in a variable was difficult. " +
+                "May I sit down?");
+            }
         }
         else {
           q=Greenfoot.ask("I don't understand the question... May I sit down?"); 
         }
-         if (q.equals("yes")){
+        if (q.equals("yes")){
             Greenfoot.delay(10);
             sitDown();
         }
