@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The MelodyWang class can be used as a model for your own class that represents you and your seating location in AP CSA
  * 
  * @author Melody Wang
- * @version 08/16/19
+ * @version 09/03/19
  */
 public class MelodyWang extends Student implements SpecialInterestOrHobby
 {
@@ -54,8 +54,8 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
     }
     
      /**
-     * Act - do whatever the MelodyWang actor wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * When MelodyWang actor is clicked, if sitting (default setting), sets image to stand, calls myHobby() and bandClass(). Else (if not sitting), calls 
+     * answerQuestion() and sitDown().
      */   
     public void act() 
     {
@@ -66,7 +66,7 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
                 setImage(standingFile);
                 System.out.println(""); // Print a blank line to create space between any student output.
                 getName();
-                //sayName(soundFile);
+                sayName(soundFile);
             
                 myHobby("I'm a part of the marching band.");
             // Create a "special method for your class and put the call here.  You can twirl your image, resize it, move it around, change transparancy, or a 
@@ -105,9 +105,18 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
                 q=Greenfoot.ask("I was confused about the differences between merge, selection, and insertion sort, and how to implement each of them. " +
                 "May I sit down?");
             }
+            if (q.contains("searches")) {
+                q=Greenfoot.ask("I had trouble remembering the different kinds of searches and how they are used. May I sit down?");
+            }
             if (q.contains("iterations") || q.contains("loops")) {
                 q=Greenfoot.ask("Counting iterations and tracing what would be printed or stored in a variable was difficult. " +
                 "May I sit down?");
+            }
+            if (q.contains("syntax")) {
+                q=Greenfoot.ask("Remembering the exact syntax to declare different variables was hard. May I sit down?");
+            }
+            if (q.contains("scope")) {
+                q=Greenfoot.ask("I was unsure about when to use private or public methods. May I sit down?");
             }
         }
         else {
@@ -117,11 +126,14 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
             Greenfoot.delay(10);
             sitDown();
         }
+        else if (q.equals("no")) {
+            answerQuestion();
+        }
         
     }
     /**
      * This is a local method specific to the MelodyWang class used to animate the character once the image is clicked on.
-     * You can write your own methods to perform your own animation for your character/avatar.
+     * 
      */
     public void bandClass(){
         String [][] formation = new String [2][2];
@@ -137,6 +149,7 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
         }
         setImage(bandFile);
         String q=Greenfoot.ask("What formation would you like to see? (Enter a number between 1-4)");
+        //Box formation
         if (q.equals("1")) {
             setLocation(0, 0);
             System.out.println("Now showing: " + formation[0][0] + " formation");
@@ -160,7 +173,8 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
                 setLocation(0, i);
                 Greenfoot.delay(10);
             }
-        } 
+        }
+        //Lines formation
         else if (q.equals("2")) {
             setLocation(0, 0);
             System.out.println("Now showing: " + formation[0][1] + " formation");
@@ -185,6 +199,7 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
                 Greenfoot.delay(10);
             }
         }
+        //Diagonals formation
         else if (q.equals("3")) {
             setLocation(0, 0);
             System.out.println("Now showing: " + formation[1][0] + " formation");
@@ -219,6 +234,7 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
                 Greenfoot.delay(10);
             }
         }
+        //Plus formation
         else if (q.equals("4")) {
             System.out.println("Now showing: " + formation[1][1] + " formation");
             setLocation(4, 3);
@@ -259,6 +275,7 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
                 Greenfoot.delay(10);
             }
         }
+        //Random movement (if an invalid number is entered when asking for formation number)
         else {
             System.out.println("That's not a valid formation! I don't know where I'm going.");
             for (int i=1; i<=10; i++) {
@@ -271,7 +288,11 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
         returnToSeat();
         }
     
-    public void myHobby(String s) {
+    /**
+     * Used to print a hobby to the console
+     * @param String s (description of a hobby)
+     */
+        public void myHobby(String s) {
          System.out.println(s);
 
     }
