@@ -1,12 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The MelodyWang class can be used as a model for your own class that represents you and your seating location in AP CSA
- * 
  * @author Melody Wang
+<<<<<<< Updated upstream
  * @version 08/16/19
+=======
+ * @version 09/05/19
+>>>>>>> Stashed changes
  */
-public class MelodyWang extends Student implements SpecialInterestOrHobby
+public class MelodyWang extends Student implements SpecialInterestOrHobby, NumberOfSiblings
 {
 
     /**
@@ -59,21 +61,21 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
      */   
     public void act() 
     {
-        // Add your action code here.
         if(Greenfoot.mouseClicked(this)){
             if (sitting){
                 sitting=false;
                 setImage(standingFile);
                 System.out.println(""); // Print a blank line to create space between any student output.
                 getName();
+<<<<<<< Updated upstream
                 //sayName(soundFile);
             
+=======
+                sayName(soundFile);
+>>>>>>> Stashed changes
                 myHobby("I'm a part of the marching band.");
-            // Create a "special method for your class and put the call here.  You can twirl your image, resize it, move it around, change transparancy, or a 
-            // combination of all of those types of actions, or more. Make sure to save the original image if you manipulate it, so that you can put it back.
-            // Call the sitDown() method to move back  to your seat
-            
-                 bandClass();  // My special method
+                System.out.println("I have " + numberOfSiblings() + " siblings, " + numberOfBrothers() + " brothers and " + numberOfSisters() + " sisters.");
+                bandClass();  // My special method
             }
             else {
                 answerQuestion();
@@ -90,10 +92,7 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
         System.out.println("My name is " + firstName + " " + lastName);
     }
     /**
-     * This method needs to allow the user to interact with the student through a question and answer interface, and provide
-     * some mechanism that allows the student to sit down once the Q&A session ends.  You can use this basic model, or come up
-     * with some additional class and object that represents a blackboard, or a talking cartoon bubble etc. If you provide extra
-     * classes, make sure to fully document so other students can use the same interface.
+     * Allows the user to interact with the student by asking questions. A second level of questioning regarding what was hard from summer homework is supported.
      */
     public void answerQuestion(){
         String q=Greenfoot.ask("What would you like to know");
@@ -112,7 +111,12 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
     }
     /**
      * This is a local method specific to the MelodyWang class used to animate the character once the image is clicked on.
+<<<<<<< Updated upstream
      * You can write your own methods to perform your own animation for your character/avatar.
+=======
+     * When the student is clicked, the user will be prompted to enter a number from 1-4 to determine what movement will be shown. If a number outside of this range is entered, there will 
+     * be random movement instead.
+>>>>>>> Stashed changes
      */
     public void bandClass(){
         String [][] formation = new String [2][2];
@@ -249,8 +253,26 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
         returnToSeat();
         }
     
+<<<<<<< Updated upstream
     public void myHobby(String s) {
          System.out.println(s);
 
+=======
+    /**
+     * Used to print a hobby to the console
+     * @param String s (description of a hobby)
+     */
+    public void myHobby(String s) {
+        System.out.println(s);
+    }
+    public int numberOfSiblings() {
+        return 2;
+    }
+    public int numberOfBrothers() {
+        return 0;
+    }
+    public int numberOfSisters() {
+        return 2;
+>>>>>>> Stashed changes
     }
 }
