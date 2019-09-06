@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Melody Wang
  * @version 09/03/19
  */
-public class MelodyWang extends Student implements SpecialInterestOrHobby
+public class MelodyWang extends Student implements SpecialInterestOrHobby, NumberOfSiblings
 {
 
     /**
@@ -69,6 +69,7 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
                 sayName(soundFile);
             
                 myHobby("I'm a part of the marching band.");
+                System.out.println("I have " + numberOfSiblings() + " siblings, " + numberOfBrothers() + " brothers and " + numberOfSisters() + " sisters.");
             // Create a "special method for your class and put the call here.  You can twirl your image, resize it, move it around, change transparancy, or a 
             // combination of all of those types of actions, or more. Make sure to save the original image if you manipulate it, so that you can put it back.
             // Call the sitDown() method to move back  to your seat
@@ -292,8 +293,17 @@ public class MelodyWang extends Student implements SpecialInterestOrHobby
      * Used to print a hobby to the console
      * @param String s (description of a hobby)
      */
-        public void myHobby(String s) {
+    public void myHobby(String s) {
          System.out.println(s);
 
+    }
+    public int numberOfSiblings() {
+        return 2;
+    }
+    public int numberOfBrothers() {
+        return 0;
+    }
+    public int numberOfSisters() {
+        return 2;
     }
 }
